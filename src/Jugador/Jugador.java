@@ -1,5 +1,6 @@
 package src.Jugador;
 
+
 public class Jugador {
     /**
      * Ingresamos los atributos que definiran a nuestro objeto jugador
@@ -11,7 +12,6 @@ public class Jugador {
     private int puntuacion;
     private int partidasGanadas;
     private int partidasPerdidas;
-    private boolean ganador;
 
     /** Fin de atributos */
 
@@ -26,15 +26,29 @@ public class Jugador {
         this.puntuacion = 0;
         this.partidasGanadas = 0;
         this.partidasPerdidas = 0;
+        this.piezasEnTablero = 12;
     }
+
+
+    public void moverPieza(String[][] tablero, int iInicial, int jInicial, boolean derecha, String caracterVacio, String caracteFinal){
+            tablero[iInicial][jInicial] = caracterVacio;
+            if(derecha)
+            tablero[iInicial+1][jInicial+1] = caracteFinal;
+            else 
+            tablero[iInicial-1][jInicial+1] = caracteFinal;
+        }
+
 
     /** Inician getters y setters */
     public void setPuntuacion(int puntuacion) {
         this.puntuacion = puntuacion;
     }
 
-    public void isGanador(boolean ganador) {
-        this.ganador = ganador;
+    public boolean isGanador() {
+        if (this.piezasEnTablero == 0)
+        return false;
+        else 
+        return true;
     }
 
     public void setPartidasGanadas(int partidasGanadas) {
@@ -55,6 +69,10 @@ public class Jugador {
 
     public int getPartidasGanadas(){
         return this.partidasGanadas;
+    }
+
+    public int getpiezasEnTablero(){
+        return piezasEnTablero;
     }
 
     public String getDatosJugador(){
