@@ -1,6 +1,6 @@
-package Jugador;
+package src.Jugador;
 
-import MainDamas.Datos;
+import src.MainDamas.Datos;
 import src.Jugador.Jugador;
 
 public class ListadoJugadores {
@@ -13,7 +13,7 @@ public class ListadoJugadores {
         if (lugar<5) {
             jugadores[lugar] = new Jugador(nombre, edad);
         } else {
-            System.println("\n---Limite de jugadores alcanzado---");
+            System.out.println("\n---Limite de jugadores alcanzado---");
         }
         lugar++;
     }
@@ -21,5 +21,6 @@ public class ListadoJugadores {
     public void agregarJugador(){
         String nombre = Datos.getTexto("Ingrese el nombre del participante: ");
         int edad = Datos.getEntero("ingrese la edad del participante", false);
+        agregarJugador(nombre, edad);
     }
 }
