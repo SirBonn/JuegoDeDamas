@@ -53,14 +53,18 @@ public class Jugador {
         return this.edad;
     }
 
+    public int getPartidasGanadas(){
+        return this.partidasGanadas;
+    }
+
     public String getDatosJugador(){
         String jugador;
-        jugador = "Nombre: " +this.nombre +"\nEdad: " +this.edad;
+        jugador = "Nombre: " +this.nombre +"\n   Edad: " +this.edad +"\n";
         return jugador;
     }
 
     public String getReportePartidas() {
-        return "El jugador " + this.nombre + " tiene: \n\t-> " + this.partidasGanadas + " Victorias" + "\n\t-> "
+        return " " + this.nombre + " tiene: \n\t-> " + this.partidasGanadas + " Victorias" + "\n\t-> "
                 + this.partidasPerdidas + " Derrotas";
     }
 
