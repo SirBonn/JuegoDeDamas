@@ -39,7 +39,7 @@ public class JuegoDamas {
             System.out.println("Turno de negras");
             jugadorNegras.moverPieza(tablero);
             Datos.esperar("- enter para continuar -");
-
+            
         } while (jugadorBlancas.getpiezasEnTablero() == 0 || jugadorNegras.getpiezasEnTablero() == 0);
     }
 
