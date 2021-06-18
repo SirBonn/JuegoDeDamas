@@ -9,7 +9,7 @@ public class ListadoJugadores {
     private int lugar = 0;
 
     /** Metodos para introducir jugadores a la lista */
-    public void agregarJugador(String nombre, int edad) {
+    private void agregarJugador(String nombre, int edad) {
         if (lugar < 5) {
             jugadores[lugar] = new Jugador(nombre, edad);
         } else {
@@ -38,8 +38,8 @@ public class ListadoJugadores {
     public void mostrarPosiciones() {
 
         if (lugar < 5) {
-            for (int i = 1; i < (lugar); i++) {
-                for (int j = 0; j < (lugar - i); j++) {
+            for (int i = 1; i < (lugar-1); i++) {
+                for (int j = 0; j < (lugar); j++) {
                     // String.compareTo(String)
                     // [-oo , + oo]
                     boolean ordenar = (jugadores[j].getPartidasGanadas() > jugadores[j + 1].getPartidasGanadas());

@@ -2,6 +2,7 @@ package src.Juego;
 
 import src.Jugador.*;
 import src.MainDamas.*;
+import src.Textos.Escribir;
 
 public class JuegoDamas {
     private MatrizTablero tablero;
@@ -13,10 +14,12 @@ public class JuegoDamas {
         this.jugadorBlancas = jugadorBlancas;
         this.jugadorNegras = jugadorNegras;
         dibujarTableroPartida();
+        Datos.esperar("--- Pulse enter para Comenzar ---");
+        jugarPartida();
     }
 
     private void dibujarTableroPartida() {
-        System.out.println("Jugador1: " + jugadorBlancas.getNombre()));
+        System.out.println("Jugador1: " + jugadorBlancas.getNombre());
         System.out.print("_________________________________________________\n");
         tablero.mostrarTablero();
         System.out.print("\n_________________________________________________\n");
@@ -26,7 +29,17 @@ public class JuegoDamas {
 
     public void jugarPartida() {
         do {
-            
+            Escribir.limpiadorPantalla();
+            tablero.mostrarTablero();
+            System.out.println("Turno de blancas");
+            jugadorBlancas.moverPieza(tablero);
+            Datos.esperar("- enter para continuar -");
+            Escribir.limpiadorPantalla();
+            tablero.mostrarTablero();
+            System.out.println("Turno de negras");
+            jugadorNegras.moverPieza(tablero);
+            Datos.esperar("- enter para continuar -");
+
         } while (jugadorBlancas.getpiezasEnTablero() == 0 || jugadorNegras.getpiezasEnTablero() == 0);
     }
 

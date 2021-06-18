@@ -1,5 +1,7 @@
 package src.Jugador;
 
+import src.Juego.MatrizTablero;
+import src.MainDamas.Datos;
 
 public class Jugador {
     /**
@@ -30,12 +32,10 @@ public class Jugador {
     }
 
 
-    public void moverPieza(String[][] tablero, int iInicial, int jInicial, boolean derecha, String caracterVacio, String caracteFinal){
-            tablero[iInicial][jInicial] = caracterVacio;
-            if(derecha)
-            tablero[iInicial+1][jInicial+1] = caracteFinal;
-            else 
-            tablero[iInicial-1][jInicial+1] = caracteFinal;
+    public void moverPieza(MatrizTablero tablero){
+        int i= Datos.getEntero("Que celda desea mover\nColumna: ", false);
+        int j=Datos.getEntero("Fila: ", false);
+        tablero.setCeldaVieja(i, j);
         }
 
 
