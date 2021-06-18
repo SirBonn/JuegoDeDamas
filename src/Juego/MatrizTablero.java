@@ -4,6 +4,8 @@ import src.Textos.*;
 
 public class MatrizTablero {
     private String[][] tablero = new String[9][9];
+    private String fichaJ1 = Escribir.negro  +" Ø " +Escribir.reset;
+    private String fichaJ2 = Escribir.blanco +" Ø " +Escribir.reset;
 
     public MatrizTablero() {
         crearTablero();
@@ -19,9 +21,6 @@ public class MatrizTablero {
     }
 
     private void crearTablero() {
-        String fichaJ1 = Escribir.negro  +" Ø " +Escribir.reset;
-        String fichaJ2 = Escribir.blanco +" Ø " +Escribir.reset;
-
         /**
         * llenamos la matriz tomando en cuenta que: 
         * i%2!=0 && j%2==0 >>> celda[impar, par]
@@ -29,6 +28,7 @@ public class MatrizTablero {
         * i%2==0 && j%2==0 >>> celda[par, par]
         * i%2==0 && j%2!=0 >>> celda[par, impar]
         */
+
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[0].length; j++) {
                 if (i % 2 != 0 && j % 2 == 0 || i % 2 == 0 && j % 2 != 0) {
@@ -47,6 +47,10 @@ public class MatrizTablero {
             if (i < 8)
                 tablero[i][8] = Escribir.cyan + "[" + (i + 1) + "]" + Escribir.reset;
         }
+    }
+
+    public String getTablero(int i, int j){
+        return tablero[i][j];
     }
 
 }
