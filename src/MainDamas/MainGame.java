@@ -1,12 +1,13 @@
 package src.MainDamas;
 
-import src.Juego.MatrizTablero;
+import src.Juego.*;
 import src.Jugador.*;
 import src.Textos.*;
 
 public class MainGame {
     ListadoJugadores participantes = new ListadoJugadores();
     MatrizTablero tablero = new MatrizTablero();
+    JuegoDamas juegoDamas;
 
     public static void main(String[] args) {
         MainGame juego = new MainGame();
@@ -31,13 +32,13 @@ public class MainGame {
                 case 1:
                     participantes.agregarJugador();
                     Datos.esperar("... Presione enter para continuar ...");
-                    Escribir.participantes();
                     participantes.mostrarJugadores();
                     Datos.esperar("... Pulse enter para regresar ...");
                     break;
 
                 case 2:
-                    
+                    participantes.mostrarJugadores();
+                    iniciarPartida();
                     break;
 
                 case 3:
@@ -47,6 +48,7 @@ public class MainGame {
                     Datos.esperar("... Pulse enter para regresar ...");
                     break;
                 case 4: 
+                System.out.println("\n\n");
                     tablero.mostrarTablero();
                     Datos.esperar("... Pulse enter para regresar...");
                     break;
@@ -60,6 +62,16 @@ public class MainGame {
             Escribir.limpiadorPantalla();
         } while (salir == false);
 
+    }
+
+    private void iniciarPartida(){
+        int jugadorBlancas = Datos.getEntero("Ingrese el numero del competidor: ", false);
+        System.out.println("Tienes blancas");
+        int jugadorNegras = Datos.getEntero("Ingrese el numero del contrincante: ", false);
+        System.out.println("Tienes blancas");
+        Datos.esperar("--- PULSE ENTER PARA COMENZAR ---");
+        
+        juegoDamas = new JuegoDamas((participantes.getJugador(jugadorBlancas-1)), (participantes.getJugador(jugadorNegras-1)));
     }
 
 }
