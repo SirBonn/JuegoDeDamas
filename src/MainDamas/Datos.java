@@ -1,4 +1,4 @@
-package MainDamas;
+package src.MainDamas;
 import java.util.*;
 
 public class Datos {
@@ -36,5 +36,6 @@ public class Datos {
 
     public static void esperar(){
         String tmp = sc.nextLine();
+        tmp.length();
     }
 }
