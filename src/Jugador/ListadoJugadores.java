@@ -1,7 +1,6 @@
 package src.Jugador;
 
 import src.MainDamas.Datos;
-import src.Jugador.Jugador;
 
 public class ListadoJugadores {
     /**Atributos de la clase */
