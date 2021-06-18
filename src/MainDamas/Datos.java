@@ -34,7 +34,8 @@ public class Datos {
         return texto;
     }
 
-    public static void esperar(){
+    public static void esperar(String texto){
+        System.out.println(texto);
         String tmp = sc.nextLine();
         tmp.length();
     }
