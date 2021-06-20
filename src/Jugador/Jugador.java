@@ -31,13 +31,37 @@ public class Jugador {
         this.piezasEnTablero = 12;
     }
 
+    public void moverPieza(MatrizTablero tablero, Jugador jugador1, Jugador jugador2){
+        int iInicial=0;
+        int jInicial=0;
+        int iFinal=0;
+        int jFinal=0;
 
-    public void moverPieza(MatrizTablero tablero){
-        int i= Datos.getEntero("Que celda desea mover\nColumna: ", false);
-        int j=Datos.getEntero("Fila: ", false);
-        tablero.setCeldaVieja(i, j);
+        do {
+            jInicial= Datos.getEntero("Que celda desea mover\nColumna: ", false);
+            iInicial=Datos.getEntero("Fila: ", false);
+            if (iInicial > 8 || jInicial > 8){
+                System.out.println("Verifique las entradas y vuelva a intentarlo");
+            } else {
+                jFinal = Datos.getEntero("A que celda la desea mover\nColumna", false);
+                iFinal = Datos.getEntero("Fila: ", false);
+                if (iInicial > 8 || jInicial > 8){
+                    System.out.println("Verifique las entradas y vuelva a intentarlo");
+                }
+            }
+        } while (iInicial > 8 || jInicial > 8);
+        
+        int movimiento = tablero.moverPiezas(iInicial-1, jInicial-1, iFinal-1, jFinal-1);
+        if(movimiento == 1){
+            moverPieza(tablero, jugador1, jugador2);
         }
-
+        if(movimiento == 2){
+            jugador2.setPiezasEnTablero(jugador2.getpiezasEnTablero()-1);
+        }
+        if (movimiento == 3) {
+            jugador1.setPiezasEnTablero(jugador1.getpiezasEnTablero()-1);
+        } 
+    }
 
     /** Inician getters y setters */
     public void setPuntuacion(int puntuacion) {
@@ -46,9 +70,9 @@ public class Jugador {
 
     public boolean isGanador() {
         if (this.piezasEnTablero == 0)
-        return false;
-        else 
-        return true;
+            return false;
+        else
+            return true;
     }
 
     public void setPartidasGanadas(int partidasGanadas) {
@@ -67,17 +91,21 @@ public class Jugador {
         return this.edad;
     }
 
-    public int getPartidasGanadas(){
+    public int getPartidasGanadas() {
         return this.partidasGanadas;
     }
 
-    public int getpiezasEnTablero(){
+    public void setPiezasEnTablero(int piezas){
+        this.piezasEnTablero = piezas;
+    }
+
+    public int getpiezasEnTablero() {
         return piezasEnTablero;
     }
 
-    public String getDatosJugador(){
+    public String getDatosJugador() {
         String jugador;
-        jugador = "Nombre: " +this.nombre +"\n   Edad: " +this.edad +"\n";
+        jugador = "Nombre: " + this.nombre + "\n   Edad: " + this.edad + "\n";
         return jugador;
     }
 
