@@ -6,7 +6,7 @@ import src.Textos.*;
 
 public class MainGame {
     ListadoJugadores participantes = new ListadoJugadores();
-    MatrizTablero tablero = new MatrizTablero();
+    MatrizTablero tablero;
     JuegoDamas juegoDamas;
 
     public static void main(String[] args) {
@@ -49,6 +49,7 @@ public class MainGame {
                     break;
                 case 4: 
                 System.out.println("\n\n");
+                    tablero = new MatrizTablero();
                     tablero.mostrarTablero();
                     Datos.esperar("... Pulse enter para regresar...");
                     break;
@@ -66,9 +67,9 @@ public class MainGame {
 
     private void iniciarPartida(){
         int jugadorBlancas = Datos.getEntero("Ingrese el numero del competidor: ", false);
-        System.out.println("Tienes blancas");
+        System.out.println(participantes.getJugador(jugadorBlancas-1).getNombre() + "Juegas primero");
         int jugadorNegras = Datos.getEntero("Ingrese el numero del contrincante: ", false);
-        System.out.println("Tienes blancas");
+        System.out.println(participantes.getJugador(jugadorNegras-1).getNombre() + "Juegas segundo");
         Datos.esperar("--- PULSE ENTER PARA COMENZAR ---");
         
         juegoDamas = new JuegoDamas((participantes.getJugador(jugadorBlancas-1)), (participantes.getJugador(jugadorNegras-1)));
