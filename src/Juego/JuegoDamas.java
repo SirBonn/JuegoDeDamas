@@ -30,17 +30,17 @@ public class JuegoDamas {
     public void jugarPartida() {
         do {
             Escribir.limpiadorPantalla();
-            tablero.mostrarTablero();
+            dibujarTableroPartida();
             System.out.println("Turno de blancas");
-            jugadorBlancas.moverPieza(tablero);
+            jugadorBlancas.moverPieza(tablero, jugadorBlancas, jugadorNegras);
             Datos.esperar("- enter para continuar -");
             Escribir.limpiadorPantalla();
-            tablero.mostrarTablero();
+            dibujarTableroPartida();
             System.out.println("Turno de negras");
-            jugadorNegras.moverPieza(tablero);
+            jugadorNegras.moverPieza(tablero, jugadorBlancas, jugadorNegras);
             Datos.esperar("- enter para continuar -");
             
-        } while (jugadorBlancas.getpiezasEnTablero() == 0 || jugadorNegras.getpiezasEnTablero() == 0);
+        } while (jugadorBlancas.getpiezasEnTablero() != 0 || jugadorNegras.getpiezasEnTablero() != 0);
     }
 
 }
