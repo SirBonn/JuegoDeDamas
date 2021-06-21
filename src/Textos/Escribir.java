@@ -58,4 +58,15 @@ public class Escribir {
             System.out.println("");
         }
     }
+
+    public static void ganador(){
+        System.out.println("  _______   _______   ______    _______   ______     _______   _______ ");
+        System.out.println(" |   _   | |   _   | |   _  \\  |   _   | |   _  \\   |   _   | |   _   \\");
+        System.out.println(" |.  |___| |.  1   | |.  |   | |.  1   | |.  |   \\  |.  |   | |.  l   /");
+        System.out.println(" |.  |   | |.  _   | |.  |   | |.  _   | |.  |    \\ |.  |   | |.  _   1");
+        System.out.println(" |:  1   | |:  |   | |:  |   | |:  |   | |:  1    / |:  1   | |:  |   |");
+        System.out.println(" |::.. . | |::.|:. | |::.|   | |::.|:. | |::.. . /  |::.. . | |::.|:. |");
+        System.out.println(" `-------' `--- ---' `--- ---' `--- ---' `------'   `-------' `--- ---'");           
+    }
+    
 }

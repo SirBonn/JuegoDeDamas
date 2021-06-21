@@ -19,11 +19,14 @@ public class JuegoDamas {
     }
 
     private void dibujarTableroPartida() {
-        System.out.println("Jugador1: " + jugadorBlancas.getNombre());
+        System.out.print("\nJugador 1: " + jugadorBlancas.getNombre());
+        tablero.mostrarComidas(true, this.jugadorBlancas.getPIezasComidas());
         System.out.print("_________________________________________________\n");
         tablero.mostrarTablero();
         System.out.print("\n_________________________________________________\n");
-        System.out.println("Jugador2: " + jugadorNegras.getNombre());
+        System.out.print("Jugador2: " + jugadorNegras.getNombre());
+        tablero.mostrarComidas(false, jugadorNegras.getPIezasComidas());
+
     }
 
 
@@ -32,15 +35,24 @@ public class JuegoDamas {
             Escribir.limpiadorPantalla();
             dibujarTableroPartida();
             System.out.println("Turno de blancas");
-            jugadorBlancas.moverPieza(tablero, jugadorBlancas, jugadorNegras);
+            jugadorBlancas.moverPieza(tablero, jugadorBlancas, jugadorNegras, 1);
             Datos.esperar("- enter para continuar -");
             Escribir.limpiadorPantalla();
             dibujarTableroPartida();
             System.out.println("Turno de negras");
-            jugadorNegras.moverPieza(tablero, jugadorBlancas, jugadorNegras);
+            jugadorNegras.moverPieza(tablero, jugadorBlancas, jugadorNegras, 2);
             Datos.esperar("- enter para continuar -");
             
         } while (jugadorBlancas.getpiezasEnTablero() != 0 || jugadorNegras.getpiezasEnTablero() != 0);
+    
+        if(jugadorBlancas.getpiezasEnTablero() == 0){
+            Escribir.ganador();
+            System.out.println("\n\n" +jugadorNegras.getNombre());  
+        } else {
+            Escribir.ganador();
+            System.out.println("\n\n" +jugadorBlancas.getNombre());  
+        }
+
     }
 
 }
