@@ -40,7 +40,7 @@ public class MatrizTablero {
             }
         }
     }
-
+    
     private void seleccionarTablero() {
         this.isRojas = true;
         int opcion = Datos.getEntero("Seleccione cassillas a jugar: \n1. Rojo\t2. Negros", false);
@@ -51,10 +51,10 @@ public class MatrizTablero {
         crearTablero(isRojas);
     }
 
-    private String pintarFicha(String colorFondoFicha, String colorFicha, String caracter) {
-        return colorFondoFicha + colorFicha + caracter + Escribir.reset;
+    private String pintarFicha(String colorFondoFicha, String colorFicha, String caracter){
+        return colorFondoFicha + colorFicha +caracter + Escribir.reset;
     }
-
+    
     private void setTipoFichas(boolean isRojas) {
         if (isRojas) {
             this.fichaJ1 = pintarFicha(Escribir.frojo, Escribir.negro, " ● ");
@@ -65,10 +65,10 @@ public class MatrizTablero {
         }
     }
 
-    private boolean condicion(int i, int j, boolean isRojas) {
-        if (isRojas) {
+    private boolean condicion(int i, int j, boolean isRojas){
+        if(isRojas){
             return (i % 2 != 0 && j % 2 == 0 || i % 2 == 0 && j % 2 != 0);
-        } else {
+        } else{
             return !(i % 2 != 0 && j % 2 == 0 || i % 2 == 0 && j % 2 != 0);
         }
     }
@@ -93,7 +93,7 @@ public class MatrizTablero {
             }
             if (i < 8)
                 tablero[i][8].setContenido(Escribir.cyan + "[" + (i + 1) + "]" + Escribir.reset);
-            tablero[8][8].setContenido("   ");
+                tablero[8][8].setContenido("   ");
         }
     }
 
@@ -146,4 +146,6 @@ public class MatrizTablero {
     public Casilla getCasilla(int i, int j){
         return tablero[i][j];
     }    
+
+
 }
