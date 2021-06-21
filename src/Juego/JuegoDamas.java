@@ -34,23 +34,25 @@ public class JuegoDamas {
         do {
             Escribir.limpiadorPantalla();
             dibujarTableroPartida();
-            System.out.println("Turno de blancas");
+            System.out.println("\n\nTurno de blancas");
             jugadorBlancas.moverPieza(tablero, jugadorBlancas, jugadorNegras, 1);
             Datos.esperar("- enter para continuar -");
             Escribir.limpiadorPantalla();
             dibujarTableroPartida();
-            System.out.println("Turno de negras");
+            System.out.println("\n\nTurno de negras");
             jugadorNegras.moverPieza(tablero, jugadorBlancas, jugadorNegras, 2);
             Datos.esperar("- enter para continuar -");
             
         } while (jugadorBlancas.getpiezasEnTablero() != 0 || jugadorNegras.getpiezasEnTablero() != 0);
     
         if(jugadorBlancas.getpiezasEnTablero() == 0){
-            Escribir.ganador();
+            Escribir.presentarGanador();
             System.out.println("\n\n" +jugadorNegras.getNombre());  
+            jugadorNegras.setPartidasGanadas(jugadorNegras.getPartidasGanadas()+1);
         } else {
-            Escribir.ganador();
+            Escribir.presentarGanador();
             System.out.println("\n\n" +jugadorBlancas.getNombre());  
+            jugadorBlancas.setPartidasGanadas(jugadorBlancas.getPartidasGanadas()+1);
         }
 
     }

@@ -57,11 +57,12 @@ public class MainGame {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Error, entrada invalida.\nVuelva a intentarlo");
+                    Escribir.error();
                     Datos.esperar("... Pulse enter para continuar ...");
             }
             Escribir.limpiadorPantalla();
         } while (salir == false);
+        Escribir.despedida();
 
     }
 

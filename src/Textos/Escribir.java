@@ -59,6 +59,31 @@ public class Escribir {
         }
     }
 
+    public static void error(){
+        System.out.println(rojo + "           ┌────────┐  ┌┐  ┌┐" + reset);
+        System.out.println(rojo + " ENTRADA   │        │  │└┐┌┘│" + reset);
+        System.out.println(rojo + " INVALIDA  │        │  └─┐┌─┘" + reset);
+        System.out.println(rojo + " VUELVE A  │    X   └────┘│" + reset);
+        System.out.println(rojo + "INTENTARLO │───┬┬┬┐       │" + reset);
+        System.out.println(rojo + "           └───└┴┘────────┘\n" + reset);
+    }
+
+    public static void despedida(){
+            System.out.println(magenta + "      ▄▀▄     ▄▀▄");
+            System.out.println("     ▄█░░▀▀▀▀▀░░█▄");
+            System.out.println(" ▄▄  █░░░░░░░░░░░█  ▄▄");
+            System.out.println("█▄▄█ █░░▀░░┬░░▀░░█ █▄▄█");
+            System.out.println(cyan + "===== Adio' chulo =====" + reset);
+    }
+
+    public static void presentarGanador(){
+        System.out.println(magenta + "──▄███▀▄       " + verde + "  FELICIDADES  " + magenta + "       ▄▀███▄──");
+        System.out.println(magenta + "──██████▀▀     " + verde + "TENEMOS GANADOR" + magenta + "     ▀▀██████──");
+        System.out.println(magenta + "─████─█             ──▄▄▄              █─████─");
+        System.out.println("─██▀█─█             ─█▄▀▄█             █─█▀██─");
+        System.out.println("▀▀█▄▄█▀             ─▀███▀             ▀█▄▄█▀▀" + reset);
+    }
+
     public static void ganador(){
         System.out.println("  _______   _______   ______    _______   ______     _______   _______ ");
         System.out.println(" |   _   | |   _   | |   _  \\  |   _   | |   _  \\   |   _   | |   _   \\");
