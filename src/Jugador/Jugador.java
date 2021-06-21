@@ -1,7 +1,6 @@
 package src.Jugador;
 
-import src.Juego.Arbitro;
-import src.Juego.MatrizTablero;
+import src.Juego.*;
 import src.MainDamas.Datos;
 
 public class Jugador {
